@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1 Introduction HTML</title>
+    <style>
+        table tr td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+     <!-- 2 tipe tag html
+        - single tag : <hr />
+        - Double tag : <h1> </h1>
+    -->
+
+    <!-- HTML memiliki 2 element
+    Iniline Element : width dan height mengikuti isi konten
+    Block Element : width 100% dan height mengikuti isi konten
+    -->
+    <!-- contoh inline element -->
+    <span></span>
+    <!-- contoh Block element -->
+</div>
+
+
+
+    <!-- typography -->
+    <!-- Headings -->
+    <h1> Hello Word! </h1>
+    <h2> Hello Word! </h2>
+    <h3> Hello Word! </h3>
+    <h4> Hello Word! </h4>
+    <h5> Hello Word! </h5>
+    <h6> Hello Word! </h6>
+    <!-- Paragraph -->
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, repudiandae, quam, aperiam optio excepturi enim ea sapiente architecto pariatur aliquam mollitia. Quis libero ut, dicta animi culpa esse neque tenetur!
+    </p>
+
+    <!-- line -->
+    <hr /> <!--Horizontal Line-->
+
+    <!-- Break -->
+    <br> <!-- Memberikan enter atau break pada line diabwahnya-->
+
+    <!-- Format Text -->
+    <b>ini bold</b>
+    <i>ini italic</i>
+    <u>ini underline</u>
+    <del>Ini dicoret</del>
+    <mark>ini distabilo</mark>
+    <em>Ini emphasized seperti italid</em>
+    
+    <!-- Lists -->
+    <!-- OL: Ordered List Berupa angka-->
+    <ol>
+        <li>bla bla bla</li>
+        <li>bla bla bla</li>
+        <li>bla bla bla</li>
+    </ol>
+
+    <!-- UL: Undored List: Berupa dot -->
+    <ul>
+        <li>bla bla bla</li>
+        <li>bla bla bla</li>
+        <li>bla bla bla</li>
+    </ul>
+
+    <table>
+        <thead>
+            <tr>
+                <th>No. </th>
+                <th>Student </th>
+                <th>Hobi </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Gilang</td>
+                <td>Coding</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Gilang</td>
+                <td>Makan</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Anjar</td>
+                <td>coffe</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td colspan="2"> column span</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td rowspan="2">row span</td>
+            </tr>
+            <tr>
+                <td>6</td>
+            </tr>
+        </tbody>
+    </table>
+
+     <!-- Anchor Tags -->
+     <p>
+         <a href="https://www.instagram.com/12rgilang/">My Instagram Page</a>
+     </p>
+     <p>
+         <a href="another pge.html">Another Page</a>
+     </p>
+
+     <img src="https://images.unsplash.com/photo-1661956602944-249bcd04b63f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxzZWFyY2h8MXx8ZGV2ZWxvcGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60" alt="from unsplash.com" />
+     <img src="GitHub.jpg" alt="From Local Storage" width="500px" height="550px" />
+     
+     <br><br>
+
+     <figure>
+         <img src="GitHub.jpg" alt="From local storage" width="500px" height="550px" />
+         <figcaption>ini ngasih caption</figcaption>
+     </figure>
+
+     <form>
+         <input type="text" placeholder="Input Username" required />
+         <input type="password" placeholder="Input Username" required />
+         <input type="checkbox" /> Male
+         <input type="checkbox" /> Female
+         <input type="radio" required /> Married
+         <input type="number" min="0" max="10" />
+         <input type="submit" value="Ok" required />
+         <textarea rows="3" cols="64"> TES </textarea>
+     </form>
+
+     <br><br><br><br><br><br>
+
+     <button> <!--Menggunakan Button untuk lebih gampang diedit atau lebih lelluasa-->
+        <u>Test</u>
+     </button>
+
+     <select>
+         <option>one</option>
+         <option>Two</option>
+         <option>Three</option>
+     </select>
+
+     <br><br><br><br><br><br>
+
+     <div>
+         <label for="User">Username</label>
+         <input type="text" name="user" placeholder="Input your Username"/>
+     </div>
+
+     <br><br><br><br><br><br>
+
+     <fieldset>
+        <legend> Data </legend>
+        <div>
+         <label for="Name">Nama:</label>
+         <input type="text" name="nama" placeholder="Input your name" required/>
+        </div>
+        <div>
+            <label for="Usia">Usia</label>
+            <input type="text" name="Usia" placeholder="Input your Age  " required/>
+           </div>
+     </fieldset>
+
+
+</body>
+</html>

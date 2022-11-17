@@ -1,0 +1,19 @@
+h3 {
+    color: black;
+}
+
+/* Tag selector */
+/* text selector gunakan contoh text yang ingin dipakai */
+
+/* Id Selector */
+/* gunakan # untuk Id Selector */
+
+/* Class selector */
+/* Gunakan . untuk class selector */
+
+/* attribute selector */
+/* a[href]{
+    color: black
+} */
+
+/* ketika menggunakan external CSS, tag yang paling spesific yang paling diutamakan */

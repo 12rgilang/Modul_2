@@ -1,0 +1,30 @@
+table, th, td {
+    border: 1px solid black;
+    margin: 100px;
+  }
+
+td {
+    text-align: center;
+    padding: 10px;
+}
+
+.one{
+    color: whitesmoke;
+    background-color: #001253;
+}
+.two{
+    color: whitesmoke;
+    background-color: #3E6D9C;
+}
+.three{
+    color: #150050;
+    background-color: #FD841F;
+}
+.four{
+    color: #153462;
+    background-color: #E14D2A;
+}
+.five{
+    color: #FF8DC7;
+    background-color: #6B728E;
+}

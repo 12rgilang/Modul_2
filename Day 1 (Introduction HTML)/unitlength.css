@@ -1,0 +1,39 @@
+/* 
+    struktur CSS nya harus urut sesuai parent-child yg ada di element.
+    
+    selama font size em belum bertemu px akan terus dikali
+
+    dan juga jika tidak bertemu px , total em akan dikalikan 16 px
+*/
+
+.first-div {
+    font-size: 50px;
+}
+
+.second-div{
+    font-size: 3em;
+}
+
+.third-div{
+    font-size: 100px;
+}
+
+.first-heading{
+    font-size: 1em;
+}
+
+/* 
+rem bekerja berdasarkan root elementnya, diakses menggunnakan : atau tag html
+*/
+
+html{
+    font-size: 100px;
+}
+
+.heading-pertama{
+    font-size: 2rem;
+}
+
+.heading-kedua{
+    font-size: 3rem;
+}
