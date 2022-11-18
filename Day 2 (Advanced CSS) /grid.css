@@ -1,0 +1,119 @@
+.container{
+    background-color: brown;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /*fr berarti fraction, didalam sini dapat diisi dengan fr pixel % etc, dan akan membuat colom */
+    grid-template-rows: 1fr 1fr 1fr; /*dapat menambahkan row dibawahnya, namun juika didalam html tidak ada content maka tidak akan berwarna kecuali kita tambahkan background color*/
+}
+
+.container div{
+    background-color: bisque;
+    font-size: 30px;
+    color: whitesmoke;
+    height: 70px; /* ditambahkan ini akna meembentuk sebuah persegi*/
+    width: 70px;
+}
+
+.container div:nth-child(even){
+    background-color: black;
+}
+
+.newcontainer{
+    text-align: center;
+    height: 500px;
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr 3fr;
+    grid-gap: 15px;
+    font-size: 50px;
+}
+
+.newcontainer div{
+background-color: whitesmoke;
+}
+
+.newcontainer div:nth-child(even){
+    color: whitesmoke;
+    background-color: black;
+}
+
+.container1{
+    font-size: 50px;
+    text-align: center;
+    height: 350px;
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr); /*awal berapa value yang ingin kita masukan, kemduian besaran ukuran*/
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.container1 div{
+    background-color: #97D2EC;
+}
+
+.container1 div:nth-child(even){
+    background-color: #25316D;
+}
+
+.box1{
+    grid-column: 1/4; /*dimulai dari satu dan berhenti pada nomor ke 3*/
+}
+
+.box2{
+    grid-column: 4/10 ; /*dimulai dari 4 dan berhenti pada nomor ke 9*/
+}
+
+.container2{
+    font-size: 50px;
+    text-align: center;
+    height: 350px;
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 10px
+}
+
+.container2 div{
+    background-color: #ECC5FB;
+}
+
+.container2 div:nth-child(even){
+    background-color: #FAF4B7;
+}
+
+.kotak1{    
+    grid-column: 1/4;
+    
+}
+
+.kotak2{
+    grid-column: 4/10;
+}
+
+.kotak3{
+    grid-column: 1/5; 
+    grid-row: 2/4;
+}
+
+.justify {
+    margin: 100px, 0px;
+    font-size: 25px;
+    text-align: center;
+    height: 500px;  
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.justify div {
+    background-color: #1be773;
+    height: 100px;
+    width: 100px;
+}
+
+.justify div:nth-child(even){
+    background-color: #A5F1E9;
+}

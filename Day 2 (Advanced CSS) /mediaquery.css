@@ -1,0 +1,56 @@
+/* ini untuk desktop */
+body{
+    background-color: #FD841F;
+}
+
+@media only screen and (max-width: 1024px){ /*ini small screen laptops */
+    .one {
+        background-color: #bb1313;
+    }
+}
+
+
+/* Jika menggunakan max width dimulai dari besar ke kecil */
+@media only screen and (max-width: 768px){ /*ini tablet device */
+    .two {
+        background-color: whitesmoke;
+    }
+}
+
+@media only screen and (max-width: 480px){ /* ini mobile device*/
+    .three {
+        background-color: yellow;
+    }
+}
+
+
+table, th, td {
+    border: 1px solid black;
+    margin: 100px;
+  }
+
+td {
+    text-align: center;
+    padding: 10px;
+}
+
+.one{
+    color: whitesmoke;
+    background-color: #001253;
+}
+.two{
+    color: whitesmoke;
+    background-color: #3E6D9C;
+}
+.three{
+    color: #150050;
+    background-color: #FD841F;
+}
+.four{
+    color: #153462;
+    background-color: #E14D2A;
+}
+.five{
+    color: #FF8DC7;
+    background-color: #6B728E;
+}

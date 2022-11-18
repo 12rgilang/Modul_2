@@ -1,0 +1,16 @@
+.name{
+    color: blue;
+}
+
+/* Jika menggunakan max width dimulai dari besar ke kecil */
+@media only screen and (max-width: 768px){ /*ini tablet device */
+    .name {
+        color: red;
+    }
+}
+
+@media only screen and (max-width: 480px){ /* ini mobile device*/
+    .name {
+        color: grey;
+    }
+}

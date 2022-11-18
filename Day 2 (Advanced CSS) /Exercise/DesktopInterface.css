@@ -1,0 +1,123 @@
+body{
+    margin: 5px
+}
+
+.navbar {
+    border: 1px solid black;
+    background-color: antiquewhite;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(37,37,167,1) 27%, rgba(0,212,255,1) 100%);
+    display: flex;
+    justify-content: center;
+
+}
+
+.navbar div{
+    color: yellow;
+    font-size: 50px;
+    padding: 2px;
+}
+
+.jumbotron {
+    border: 1px solid black;
+    background-color: antiquewhite;
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    display: flex;
+    justify-content: center;
+    height: 300px;
+    margin-top: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+.jumbotron div{
+    color:  black;
+    font-size: 50px;
+    padding: 2px;
+}
+
+.container {
+    margin-top: 25px;
+    font-size: 25px;
+    text-align: center;
+    height: 250px;  
+    margin-top: 50px;
+    display: grid;
+    grid-gap: 25px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.container div{
+    border: 1px solid black;
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container div:nth-child(odd){
+    border: 1px solid black;
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);  
+}
+
+.newcontainer{
+    margin-top: 25px;
+    font-size: 25px;
+    text-align: center;
+    height: 250px;  
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 25px
+
+}
+
+.newcontainer div{
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(129,212,16,1) 100%);
+}
+
+.one{
+    grid-row: 1/3;
+}
+
+@media only screen and (max-width: 480px){ /* ini mobile device*/
+    .jumbotron {
+        display: none;
+    }
+
+    .container {
+        margin-top: 25px;
+        font-size: 25px;
+        text-align: center;
+        height: 250px;  
+        margin-top: 50px;
+        display: grid;
+        grid-gap: 25px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .newcontainer{
+        margin-top: 25px;
+        font-size: 25px;
+        text-align: center;
+        height: 250px;  
+        margin-top: 50px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 25px
+    }
+    
+    .two{
+        
+    }
+}
