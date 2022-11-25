@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "username": "gilang",
+      "email": "gilang@gmail.com",
+      "password": "wakwaw123",
+      "id": 1
+    },
+    {
+      "username": "12rgilang",
+      "email": "wakwaw@gmail.com",
+      "password": "wakwaaaaaw",
+      "id": 2
+    },
+    {
+      "username": "",
+      "email": "",
+      "password": "asdadsada",
+      "id": 3
+    },
+    {
+      "username": "sdaasdads",
+      "email": "asdasasdsd",
+      "password": "asfasfasf",
+      "id": 4
+    },
+    {
+      "username": "asdads",
+      "email": "asadsa",
+      "password": "dsasdaasd",
+      "id": 5
+    }
+  ]
+}

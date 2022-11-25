@@ -155,6 +155,15 @@ let Home = () => {
       console.log(inputPassword.current.value)
   }
 
+  // untuk data produk penjualan 
+  const [product, setProduct] = useState(
+    [
+      {vendor: 'adidas', quantity: 100, price: 200000},
+      {vendor: 'nike', quantity: 100, price: 250000},
+      {vendor: 'puma', quantity: 100, price: 300000},
+    ]
+  )
+
   return (
     <>
       <h1>Hitung angka</h1>
@@ -172,6 +181,44 @@ let Home = () => {
         <button onClick={input}>
             Submit
         </button>
+
+      {/* Menggunakan data penjualan adidas, nike */}
+      <table>
+        <thead>
+          <tr>
+            <td>No.</td>
+            <td>Quantitiy</td>
+            <td>Vendor</td>
+            <td>Price</td>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            product.map((value, index) => {
+              return(
+              <tr>
+                <td>{index+1}</td>
+                <td>{value.quantity}</td>
+                <td>{value.vendor}</td>
+                <td>Rp.{value.price.toLocaleString()}</td>
+              </tr>
+              )
+            })
+          } 
+
+          {/* cara dibawah ini tidak dinamji */}
+          {/* {
+            <tr>
+              <td>1</td>
+              <td>{product[0].quantity}</td>
+              <td>{product[0].vendor}</td>
+              <td>Rp.{product[0].price.toLocaleString()}</td>
+              <td></td>
+            </tr>
+          } */}
+        </tbody>
+      </table>
+        
     </>
   );
 };

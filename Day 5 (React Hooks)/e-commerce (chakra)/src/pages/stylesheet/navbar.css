@@ -1,0 +1,9 @@
+.details {
+    color: green;
+    font-weight: bold;
+}
+
+.username, .pwd {
+    color: green;
+    font-weight: bold;
+}
