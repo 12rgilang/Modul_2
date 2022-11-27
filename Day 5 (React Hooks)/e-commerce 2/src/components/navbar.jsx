@@ -17,7 +17,7 @@ export default function Navbar(){
                         <img src={Logo} width='50px' height='50px' />
                     </Link>
                     {
-                        location.pathname === '/register'?
+                        location.pathname === '/register' || location.pathname === '/login' ?
                         null
                         :
                         <>
@@ -35,7 +35,7 @@ export default function Navbar(){
                 </div>
                 <div className='flex'>
                     {
-                        location.pathname === '/register'?
+                        location.pathname === '/register' ||location.pathname === '/login' ?
                         null
                         :
                         <>
@@ -46,7 +46,9 @@ export default function Navbar(){
                                 </span>
                             </div>
                             <button className='my-bg-dark my-light rounded-full mr-3 px-3 py-2'>
-                                Sign in
+                                <Link to='/login'>
+                                Sign in 
+                                </Link>
                             </button>
                             <button className='my-dark rounded-full px-3 py-2' style={{border: '1px solid black'}}>
                                 <Link to='/register'>

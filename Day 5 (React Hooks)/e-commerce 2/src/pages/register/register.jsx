@@ -9,8 +9,9 @@ export default function Register(){
     const email = useRef()
     const password = useRef()
 
+        // urutan pertama untuk membuat  function onsubmit
     let onSubmit = async() => {
-        setDisabledButton(true)
+        setDisabledButton(true) // urutan terakhir untuk conditional 
         
         let inputUsername = username.current.value
         let inputEmail = email.current.value

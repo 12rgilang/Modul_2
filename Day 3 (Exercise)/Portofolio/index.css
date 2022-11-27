@@ -453,9 +453,9 @@ body{
 
     /* Nabar */
     .navbar{
-        display: grid;
+        max-width: 480px;
+        display: flex;
         position: fixed;
-        grid-template-columns: repeat(2, 1fr);
         top: 0;
         width: 100%;
         font-family: 'Roboto Slab'  , serif;
@@ -467,8 +467,10 @@ body{
     }
 
     .navbar .hide {
-        display: block;
-        padding-right: 50%;
+        display: flex;
+        flex-direction: row;
+        padding-right: 43%;
+        justify-content: center;
         font-family: 'Roboto Slab'  , serif;
         font-size: 30px;
         -webkit-text-stroke: 1px #010a12 ;
@@ -479,9 +481,120 @@ body{
         display: none;
     }
 
+    /* Jumbotron */
+
+    .jumbotron .jumbotron-right{
+        display: none;
+        flex: 1;
+    }
+
+    .jumbotron .jumbotron-right .email{
+        display: none;
+    }
+
     .jumbotron .jumbotron-left{
         display: none;
         flex: 1;
     }
 
+    .jumbotron .jumbotron-main{
+        flex: 5;
+        font-family: 'IBM Plex Sans JP', sans-serif;
+        color: rgba(4, 41, 58, 0.448);  
+        font-size: 20px;
+        padding-top: 100px;
+        padding-left: 20px;
+    }
+
+    .jumbotron .jumbotron-main div p {
+        max-width: 480px;
+    }
+
+    /* About me */
+
+    .about-me{
+        display: flex;
+        flex-direction: column;
+        max-width: 480px;
+        padding: 0px 20px;
+
+    }
+
+    .about-me .title{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-me .title .line {
+        width: 190px;
+    }
+    
+    /* animation picture */
+
+    .about-me .hvr-glow img {
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-property: box-shadow;
+        transition-property: box-shadow;
+      }
+    
+      .hvr-glow:hover, .hvr-glow:focus, .hvr-glow:active {
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+      }
+
+      /* cards */
+      .card{
+          display: flex;
+          flex-direction: column;
+          padding: 20px
+      }
+
+      .card .title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card .title .line {
+        width: 190px;
+      }
+
+      /* Porto */
+      .porto {
+          display: flex;
+          flex-direction: column;
+          padding: 20px;
+      }
+
+      .porto .title{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+      }
+
+      .porto .title .line {
+          width: 190px;
+      }
+
+      .porto-inline {
+            display: flex;
+            flex-direction: column;
+      }
+
+      .porto-inline .image {
+            max-width: 250;
+      }
+
+      .porto .porto-inline .image img {
+          width: 350px;
+          height: 300px;
+          margin-top: 150px;
+          padding: 0px 0px ;
+      }
 }
