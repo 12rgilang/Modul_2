@@ -93,6 +93,8 @@ body{
 
 .jumbotron {
     display: flex;
+    flex-direction: row;
+    
     height: 650px;
 }
 
@@ -451,7 +453,11 @@ body{
 /* Mobile Responsive */
 @media only screen and (max-width: 480px){
 
-    /* Nabar */
+    body{
+        margin: 0px;
+    }
+
+    /* Navbar */
     .navbar{
         max-width: 480px;
         display: flex;
@@ -503,7 +509,7 @@ body{
         color: rgba(4, 41, 58, 0.448);  
         font-size: 20px;
         padding-top: 100px;
-        padding-left: 20px;
+        padding-left: 100px;
     }
 
     .jumbotron .jumbotron-main div p {
@@ -516,8 +522,8 @@ body{
         display: flex;
         flex-direction: column;
         max-width: 480px;
-        padding: 0px 20px;
-
+        padding: 0px 100px;
+        
     }
 
     .about-me .title{
@@ -528,6 +534,12 @@ body{
 
     .about-me .title .line {
         width: 190px;
+    }
+
+    .about-me > div > p{
+        display: flex;
+        margin: 0px;
+        background-color: red;
     }
     
     /* animation picture */
