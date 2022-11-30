@@ -3,25 +3,26 @@ import { useState, useRef } from 'react';
 import '../login/login.css'
 import toast, {Toaster} from 'react-hot-toast'
 
-let Login = () => {
+let Login = (props) => {
 
     const username = useRef()
     const password = useRef()
 
-    let onLogin = async() => {
-        try {
-            // step.1 get input Value
-            let inputUsername = username.current.value
-            let inputPassword = password.current.value
-            // step.2 check if Username & Password exist?
-            let response = await axios.get(`http://localhost:5000/users?username=${inputUsername}&password=${inputPassword}`)
-            if(response.data.length === 0) throw{message: "Account not found"}
+    // function login dipindahkan pada parent element app.js
+    // let onLogin = async() => {
+    //     try {
+    //         // step.1 get input Value
+    //         let inputUsername = username.current.value ini dimasukkan kedalam component on click dibawah
+    //         let inputPassword = password.current.value
+    //         // step.2 check if Username & Password exist?
+    //         let response = await axios.get(`http://localhost:5000/users?username=${inputUsername}&password=${inputPassword}`)
+    //         if(response.data.length === 0) throw{message: "Account not found"}
 
-            toast.success('Login Success.')
-        } catch (error) {
-            toast.error(error.message)
-        }
-    }
+    //         toast.success('Login Success.')
+    //     } catch (error) {
+    //         toast.error(error.message)
+    //     }
+    // }
 
 
     return(
@@ -43,7 +44,7 @@ let Login = () => {
                 
                 <a href='#' className='my-fs-15 font-bold mt-2 mb-3 my-main' >Forgot yout username ?</a>
                 <a href='#' className='my-fs-15 font-bold my-main' >Forgot yout password ?</a>
-                <button onClick={onLogin} className='my-bg-main w-25 my-light px-2 py-3 mt-3 mt-3 rounded-full self-end'>
+                <button onClick={() => props.myFunc.onLogin(username.current.value, password.current.value)} className='my-bg-main w-25 my-light px-2 py-3 mt-3 mt-3 rounded-full self-end'>
                     Sign in
                 </button>
             </div>
