@@ -2,11 +2,16 @@ import axios from 'axios';
 import { useState, useRef } from 'react';
 import '../login/login.css'
 import toast, {Toaster} from 'react-hot-toast'
+import { Navigate } from 'react-router-dom';
 
 let Login = (props) => {
 
     const username = useRef()
     const password = useRef()
+
+    if(props.isRedirect.redirect){
+        return <Navigate to='/' />
+    }
 
     // function login dipindahkan pada parent element app.js
     // let onLogin = async() => {

@@ -1,16 +1,21 @@
 import './register.css';
 import { useRef, useState } from 'react';
 import axios from 'axios';
+import { Navigate } from 'react-router-dom';
 
 import toast, { Toaster } from 'react-hot-toast'
 
-export default function Register(){
+export default function Register(props){
     const [disabledButton, setDisabledButton] = useState(false)
     const [message, setMessage] = useState('')
 
     const username = useRef()
     const email = useRef()
     const password = useRef()
+
+    if(props.isRedirect.redirect){
+        return <Navigate to='/' />
+    }
 
         // urutan pertama untuk membuat  function onsubmit
     let onSubmit = async() => {
