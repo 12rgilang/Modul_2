@@ -1,4 +1,7 @@
 import { MdNoFood } from "react-icons/md";
+import { BsCaretDown, BsInstagram, BsGithub, BsLinkedin, BsFacebook, BsTwitter } from "react-icons/bs";
+import { Link } from "react-router-dom";
+// import { RxInstagramLogo } from "react-icons/rx";
 
 let Home = () => {
   let img = [
@@ -7,9 +10,17 @@ let Home = () => {
     "https://content-prod-live.cert.starbucks.com/binary/v2/asset/digitalcontent.starbucks.com/udp/us/en/assets/rewards-carousel-3_tcm121-77066.jpg",
     "https://app.starbucks.com/weblx/images/drink-finder/iced_drink.png",
     "https://app.starbucks.com/weblx/images/drink-finder/hot_drink.png",
-    "https://content-prod-live.cert.starbucks.com/binary/v2/asset/digitalcontent.starbucks.com/udp/us/en/assets/SFLOwnedArt_tcm121-82220.jpg"
+    "https://content-prod-live.cert.starbucks.com/binary/v2/asset/digitalcontent.starbucks.com/udp/us/en/assets/SFLOwnedArt_tcm121-82220.jpg"]
+
+  let socmed = [
+    {name: "instagram", "url": "https://www.instagram.com/12rgilang/"},
+    {name: "linkedin", "url": "https://www.linkedin.com/in/gilang-ramadhan-fullstackdev2022/"},
+    {name: "facebook", "url": "https://www.facebook.com/gilang.ramadhan.39501789"},
+    { name : "github", "url": "https://github.com/12rgilang"},
+    { name: "twitter", "url": "https://twitter.com/G_R12/status/1574050538693758976"},
+  ]
     
-  ];
+  ;
   return (
     <>
       <div className="parent flex">
@@ -28,7 +39,9 @@ let Home = () => {
         <div className="flex justify-end">
           <div className="flex m-3 fixed bottom-2">
             <div className="border-black text-white font-bold rounded-full px-3 py-3 my-bg-main justify-end text-lg">
-              Start an order
+              <Link to='/menu'>
+                Start an order
+              </Link>
             </div>
           </div>
         </div>
@@ -100,7 +113,7 @@ let Home = () => {
             </div>
             </div>
              {/* button */}
-             <div className="flex ">
+              <div className="flex ">
                 <div className="btn flex ml-2 mt-2">
                         <button className='my-bg-dark px-3 py-3 flex my-light rounded-full font-semibold'>
                         Join now
@@ -109,7 +122,7 @@ let Home = () => {
                         Learn more
                         </button>
                 </div>
-                </div>
+              </div>
 
                 {/*Section 2*/}
                 <div className='py-10 flex-wrap ml-0 my-bg-grey flex rounded-lg justify-center'>
@@ -117,6 +130,7 @@ let Home = () => {
                 <div className="block max-w-lg p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                     <h5 className="mb-2 text-3xl font-bold tracking-tight border-bottom pb-3">Answer a few questions to find something new</h5>
                     <p className="font-normal">What type of drink are you looking for.</p>
+                    <Link to='/menu'>
                     <div className='flex my-bg-main p-3 justify-between mt-3 rounded-md'>
                             <div className="flex-col ">
                                 <h1 className='my-fs-20 my-light'>
@@ -130,6 +144,8 @@ let Home = () => {
                             <img src={img[3]} width='30px' height='30px' />
                             </div>
                     </div>
+                    </Link>
+                    <Link to='/menu'>
                     <div className='flex my-bg-main p-3 justify-between mt-3 rounded-md'>
                             <div className="flex-col ">
                                 <h1 className='my-fs-20 my-light'>
@@ -143,6 +159,7 @@ let Home = () => {
                             <img src={img[4]} width='30px' height='30px' />
                             </div>
                     </div>
+                    </Link> 
                 </div>
 
 
@@ -160,13 +177,68 @@ let Home = () => {
                         <div className="flex mb-3 ">
                           <div className="flex">
                             <div href="#" className="border-black text-white font-bold rounded-full px-2 py-2 my-bg-main text-lg ">
-                              Join now  
+                              <Link to='/register'>
+                                Join now  
+                              </Link>
                             </div>
                           </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+                  {/* Section 3 */}
+                  {/* Dropdown */}
+                <div className="px-3 my-4 font-semibold my-fs-20 max-w-full ml-0 flex-col">
+                  <div className="about-us flex justify-between items-center">
+                    <div className="">About us</div> <span className="pr-4"><BsCaretDown /></span>
+                  </div>
+                  <div className="careers flex mt-5 mb-5 justify-between items-center">
+                    <div className="">Careers</div> <span className="pr-4"><BsCaretDown /></span>
+                  </div>
+                  <div className="social-impact flex justify-between items-center pb-4 border-b-2">
+                    <div className="">Social Impact</div> <span className="pr-4"><BsCaretDown /></span>
+                  </div>
+
+                  {/* Socmed */}
+                  <div className="socmed flex my-fs-30 px-3 my-3 border-b-2 pb-4 items-center">
+                    <div className="instagram ">
+                      <a href={socmed[0].url} target="_blank">
+                        <BsInstagram />
+                      </a>  
+                    </div>
+                    <div className="linkedin px-4">
+                      <a href={socmed[1].url} target="_blank">
+                        <BsLinkedin />
+                      </a>  
+                    </div>
+                    <div className="facebook">
+                      <a href={socmed[2].url} target="_blank">
+                        <BsFacebook />
+                      </a>  
+                    </div>
+                    <div className="github px-4 ">
+                      <a href={socmed[3].url} target="_blank">
+                        <BsGithub />
+                      </a>
+                    </div>
+                    <div className="twitter">
+                      <a href={socmed[4].url} target="_blank"> 
+                        <BsTwitter /> 
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* copy right */}
+                  <div className="copyrigth pt-4">
+                    <div>
+                    &copy; 2022 Gilang Ramadhan. All rights reserved.
+                    </div>
+                  </div>
+
+
+            </div>
+
             </div>   
         </div>
     </>

@@ -55,7 +55,7 @@ export default function Navbar(props){
                                     {props.data.username}
                                 </div>
                                 <span className='my-fs-20 ml-1 font-bold'>
-                                    <CgProfile />
+                                    <CgProfile onClick={props.myFunc.onLogout} /> 
                                 </span>
                             </div>
                             :

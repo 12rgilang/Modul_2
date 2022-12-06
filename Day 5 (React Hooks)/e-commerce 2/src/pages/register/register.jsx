@@ -48,7 +48,7 @@ export default function Register(props){
                 password.current.value = ''
                 email.current.value = ''
                 toast.success('Register Succesfull') // ini memunculkan alert menggunakan npm toast
-                setMessage('') // seteleah inputnpendaftaran selesai maka pemberitahuan akan kembali kosong
+                setMessage('') // seteleah input pendaftaran selesai maka pemberitahuan akan kembali kosong
             }else{
                 throw { message: 'Email/username already register'}
             }

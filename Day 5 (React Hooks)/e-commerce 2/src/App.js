@@ -11,6 +11,7 @@ import { useState } from 'react';
 import toast, {Toaster} from 'react-hot-toast'
 import axios from 'axios';
 import { useEffect } from 'react';
+import DetailProduct from './pages/detail/detail';
 import Menu from './pages/menu/menu';
 
 export default function App(){
@@ -64,15 +65,22 @@ export default function App(){
     }
 }
 
+let onLogout = () => {
+  localStorage.removeItem('item')
+  setRedirect(false) // jadi ketika ke trigger clik button logout maka redirect akan false
+  setUsername('') // dan merubah username menjadi string kosong
+}
+
 
   return(
     <>
-      <Navbar data={{username}} />
+      <Navbar data={{username}} myFunc={{onLogout}} />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/register' element={<Register isRedirect={{redirect}} />} />
         <Route path='/login' element={<Login myFunc={{onLogin}} isRedirect={{redirect}}/>} />'
         <Route path='/menu' element={<Menu />} />
+        <Route path='/product/:id' element={<DetailProduct />} />
       </Routes>
     </>
   )
