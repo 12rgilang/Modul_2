@@ -1,0 +1,51 @@
+{
+  "users": [
+    {
+      "username": "gilang",
+      "email": "gilang@gmail.com",
+      "password": "123gilang",
+      "tweet": [
+        {}
+      ],
+      "id": 1
+    },
+    {
+      "username": "wakwaw",
+      "email": "wakwaw123@wakwaw.com",
+      "password": "123wakwaw",
+      "id": 2
+    }
+  ],
+  "Tweet": [
+    {
+      "tweet": "tes",
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "tweet": "halo",
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "tweet": "tes",
+      "userId": 2,
+      "id": 3
+    },
+    {
+      "tweet": "fakuy",
+      "userId": 1,
+      "id": 4
+    },
+    {
+      "tweet": "asdasd",
+      "userId": 1,
+      "id": 5
+    },
+    {
+      "tweet": "fakuty",
+      "userId": 1,
+      "id": 6
+    }
+  ]
+}
