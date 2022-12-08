@@ -1,5 +1,5 @@
 // Logo
-import Logo from './../supports/assets/logo.png'
+import Logo from './../supports/assets/name.jpg'
 
 import './navbar.css'
 
@@ -22,10 +22,12 @@ export default function Navbar(props){
                         null
                         :
                         <>
-                            <span className='pl-10 font-bold'>
-                                Cards 
+                            <span className='pl-10 font-bold carts'>
+                                <Link to='/menu'>
+                                Carts
+                                </Link>
                             </span>
-                            <span className='pl-10 font-bold'>
+                            <span className='pl-10 font-bold order'>
                                 <Link to='/menu'>
                                 Order 
                                 </Link>
@@ -60,12 +62,12 @@ export default function Navbar(props){
                             </div>
                             :
                             <>
-                            <button className='my-bg-dark my-light rounded-full mr-3 px-3 py-2'>
+                            <button className='my-bg-main font-semibold my-light rounded-full mr-3 px-3 py-2'>
                                 <Link to='/login'>
                                 Sign in 
                                 </Link>
                             </button>
-                            <button className='my-dark rounded-full px-3 py-2' style={{border: '1px solid black'}}>
+                            <button className='my-dark   rounded-full font-semibold px-3 py-2' style={{border: '1px solid black'}}>
                                 <Link to='/register'>
                                 Join now
                                 </Link>

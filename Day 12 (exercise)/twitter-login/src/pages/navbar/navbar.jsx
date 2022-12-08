@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { CgProfile } from "react-icons/cg";
 
@@ -10,9 +10,16 @@ let img = [
 ];
 
 let Navbar = (props) => {
+  const location = useLocation() 
+
   return (
     <>
-      <div className="navbar flex my-bg-dark h-16 items-center border-b-2 border-light">
+      {
+        location.pathname === '/signin' || location.pathname === '/register' ?
+        null
+        :
+        <>
+        <div className="navbar flex my-bg-dark h-16 items-center border-b-2 border-light">
         <div className="left w-12 h-12 pl-5 basis-2/5 pt-2 flex items-center ">
           <Link to="/">
             <img
@@ -48,6 +55,8 @@ let Navbar = (props) => {
           )}
         </div>
       </div>
+        </>
+      }
     </>
   );
 };

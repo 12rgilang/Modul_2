@@ -85,7 +85,7 @@ let Menu = () =>{
                 </div>
                 <div className="mt-10 border-bottom pb-3">
                     <h1 className="my-fs-25 font-bold">
-                    {category[selectedMenu]}
+                        {category[selectedMenu]}
                     </h1>
                 </div>
                 {/* Lists Products */}

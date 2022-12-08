@@ -2,6 +2,11 @@
 import './supports/stylesheets/utilities.css'
 
 import { Routes, Route } from 'react-router-dom';
+import {GoogleAuthProvider,
+  signInWithPopup,
+  onAuthStateChanged,
+  signOut} from 'firebase/auth'
+  import {auth} from './firebase'
 
 import Navbar from "./components/navbar";
 import Register from "./pages/register/register";
@@ -13,6 +18,11 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import DetailProduct from './pages/detail/detail';
 import Menu from './pages/menu/menu';
+import { async } from '@firebase/util';
+import Cart from './pages/cart/cart';
+import NotFound from './pages/notfound/404';
+
+const provider = new GoogleAuthProvider();
 
 export default function App(){
 
@@ -33,6 +43,7 @@ export default function App(){
       }
     } catch (error) {
       toast.error(error.message)
+      console.log(error.message)
     }
     // ini jika mengambil dua data yaitu id dan username
     // let getToken = JSON.parse(localStorage.getItem('token')) //JSON hanya menerima string, sehingga object yang diambil dari data base harus diubah terlebih dahulu, dari object menjadi string
@@ -41,8 +52,36 @@ export default function App(){
     // setRedirect(true)
   }
 
+  let onLoginWithGoogle = async() => {
+    try {
+      let response = await signInWithPopup(auth, provider)
+      setUsername(response.user.displayName)
+      setRedirect(true)
+     
+      localStorage.setItem('tokenUid', `${response.user.uid}` )
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
+  // let onSignOut = async() =>{
+  //   try {
+  //     await signOut(auth)
+  //     setUsername('')
+  //   } catch (error) {
+  //     console.log(error.message)
+  //   }
+  // }
+
+  onAuthStateChanged(auth, (userFromFireBase) => {
+    if(userFromFireBase){
+      setUsername(userFromFireBase.displayName)
+    }
+  })
+
   let onLogin = async(inputUsername, inputPassword) => {
     try {
+      console.log("bebas")
         // step.1 get input Value
         // let inputUsername = username.current.value // input username dan password ini akan dipanggil pada saat on click di page login
         // let inputPassword = password.current.value
@@ -65,10 +104,20 @@ export default function App(){
     }
 }
 
-let onLogout = () => {
-  localStorage.removeItem('item')
-  setRedirect(false) // jadi ketika ke trigger clik button logout maka redirect akan false
-  setUsername('') // dan merubah username menjadi string kosong
+let onLogout = async() => {
+  try {
+      localStorage.removeItem('token')
+      setUsername('') // dan merubah username menjadi string kosong
+      setRedirect(false)
+      await signOut(auth)
+      localStorage.removeItem('tokenUid')
+      setUsername('')
+      setRedirect(false) // jadi ketika ke trigger clik button logout maka redirect akan false
+  } catch (error) {
+    
+  }
+  
+  
 }
 
 
@@ -78,9 +127,11 @@ let onLogout = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/register' element={<Register isRedirect={{redirect}} />} />
-        <Route path='/login' element={<Login myFunc={{onLogin}} isRedirect={{redirect}}/>} />'
+        <Route path='/login' element={<Login myFunc={{onLogin}} myGoogle={{onLoginWithGoogle}} isRedirect={{redirect}}/>} />'
         <Route path='/menu' element={<Menu />} />
         <Route path='/product/:id' element={<DetailProduct />} />
+        <Route path='/cart' element={<Cart />} /> 
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </>
   )

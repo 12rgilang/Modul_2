@@ -49,9 +49,16 @@ let Login = (props) => {
                 
                 <a href='#' className='my-fs-15 font-bold mt-2 mb-3 my-main' >Forgot yout username ?</a>
                 <a href='#' className='my-fs-15 font-bold my-main' >Forgot yout password ?</a>
-                <button onClick={() => props.myFunc.onLogin(username.current.value, password.current.value)} className='my-bg-main w-25 my-light px-2 py-3 mt-3 mt-3 rounded-full self-end'>
-                    Sign in
-                </button>
+                <div className="parent-button flex justify-end">
+                    <button onClick={() => props.myFunc.onLogin(username.current.value, password.current.value)} className='my-bg-main w-25 my-light px-2 py-3 mt-3 mt-3 rounded-full self-y
+                    end'>
+                        Sign in
+                    </button>
+                    <button onClick={() => props.myGoogle.onLoginWithGoogle()} className='my-bg-main w-content my-light px-2 py-3 mt-3 ml-3 rounded-full self-end'>
+                        Sign in With Google
+                    </button>
+                </div>
+                
             </div>
             <Toaster />
         </div>
