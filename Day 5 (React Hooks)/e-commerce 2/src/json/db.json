@@ -7,25 +7,29 @@
       "id": 1
     },
     {
-      "username": "12rgilang",
-      "email": "wakwaw@gmail.com",
-      "password": "wakwaaaaaw",
+      "username": "wakwaw",
+      "email": "wakawaw123@wakawaw",
+      "password": "Aasd123!2",
       "id": 2
     },
     {
-      "username": "sadsdaadsads",
-      "email": "asdasddsa",
-      "password": "adssdawd11221",
+      "username": "monalisa",
+      "email": "monalisa@com",
+      "password": "Monalisa123!",
       "id": 3
+    },
+    {
+      "username": "talking",
+      "email": "talking@to",
+      "password": "Monalisa123!",
+      "id": 4
     }
   ],
-
-
-  "category" : ["Drinks", "Snack", "Food"],
-
-
-
-
+  "category": [
+    "Drinks",
+    "Snack",
+    "Food"
+  ],
   "products": [
     {
       "id": 1,

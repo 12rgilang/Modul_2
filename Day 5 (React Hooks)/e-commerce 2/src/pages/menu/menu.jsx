@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import toast, {Toaster} from 'react-hot-toast'
 import { Link } from 'react-router-dom'
+import './../menu/menu.css'
 
 let Menu = () =>{
 
@@ -72,7 +73,10 @@ let Menu = () =>{
                 {
                 category.map((value, index) => {
                     return(
-                        <div key={index} onClick={() => onFilter(index)} className="pt-2">{value}</div>
+                        <div className="flex flex-wrap btn items-center pb-2">
+                            <button key={index} onClick={() => onFilter(index)} className="pt-2">{value}</button>
+                        </div>
+                        
                     )
                         })
                 }
@@ -94,7 +98,7 @@ let Menu = () =>{
                         data.length?
                         data.map((value, index) => {
                             return(
-                                <div key={index} className='flex items-center mt-3'>
+                                <div key={index} className='flex items-center mt-3 hvr-bob'>
                                     <div>
                                         <Link to={`/product/${value.id}`}>
                                             <img src={value.image} style={{ width:'100px', height:'100px' }} className='rounded-full' />
@@ -109,7 +113,9 @@ let Menu = () =>{
                             )
                         })
                         :
-                            "Product DUARRRRR"
+                            <div className="flex justify-center items-center h-30 mt-[200px] mr-[100px] w-screen letter" id="message">
+                                Cooming soon
+                            </div>
                     }
                 </div>
             </div>

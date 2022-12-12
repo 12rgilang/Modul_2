@@ -37,7 +37,7 @@ let Login = (props) => {
             </h1>
         
             <div className="cards mt-10 px-20 py-10 w-2/5 rounded-md flex flex-column justify-around">
-                <p className='mb-3'>
+                <p className='mb-3 sm:text-center '>
                     *indicates required field
                 </p>
                 <input ref={username} type="text" placeholder='Username or email address' className='py-2 px-2 w-100 rounded-md' style={{border: '1px solid black'}} />
@@ -47,8 +47,8 @@ let Login = (props) => {
                 <input type="checkbox" className="mr-1" />Keep me sign in.<a href='#' className='items-center'> Details</a>
                 </div>
                 
-                <a href='#' className='my-fs-15 font-bold mt-2 mb-3 my-main' >Forgot yout username ?</a>
-                <a href='#' className='my-fs-15 font-bold my-main' >Forgot yout password ?</a>
+                <a href='#' className='my-fs-15 font-bold mt-2 mb-3 my-main' >Forgot your username ?</a>
+                <a href='#' className='my-fs-15 font-bold my-main' >Forgot your password ?</a>
                 <div className="parent-button flex justify-end">
                     <button onClick={() => props.myFunc.onLogin(username.current.value, password.current.value)} className='my-bg-main w-25 my-light px-2 py-3 mt-3 mt-3 rounded-full self-y
                     end'>

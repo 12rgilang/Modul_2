@@ -5,17 +5,15 @@ import { Navigate } from 'react-router-dom';
 
 import toast, { Toaster } from 'react-hot-toast'
 
-export default function Register(props){
+export default function Register(){
     const [disabledButton, setDisabledButton] = useState(false)
     const [message, setMessage] = useState('')
+    const [isRegister, setIsRegister] = useState(false)
+
 
     const username = useRef()
     const email = useRef()
     const password = useRef()
-
-    if(props.isRedirect.redirect){
-        return <Navigate to='/' />
-    }
 
         // urutan pertama untuk membuat  function onsubmit
     let onSubmit = async() => {
@@ -34,8 +32,8 @@ export default function Register(props){
         if(inputPassword.length < 8 ) throw {message: 'Password at least 8 character'}
 
         // validate using regex (regular expression)
-        let regex = /^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/
-        if(!regex.test(inputPassword)) throw {message: 'Password mus contains any number'}
+        let regex = /^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*])[0-9A-Za-z!@#$%^&*]{8,}$/
+        if(!regex.test(inputPassword)) throw {message: 'Password must contains any number,special and capitalize Char'}
         
         setDisabledButton(true) 
         let checkEmail = await axios.get(`http://localhost:5000/users?email=${inputEmail}`)
@@ -49,6 +47,10 @@ export default function Register(props){
                 email.current.value = ''
                 toast.success('Register Succesfull') // ini memunculkan alert menggunakan npm toast
                 setMessage('') // seteleah input pendaftaran selesai maka pemberitahuan akan kembali kosong
+                setTimeout(() =>{
+                    setIsRegister(true)
+                }, 2500)
+                
             }else{
                 throw { message: 'Email/username already register'}
             }
@@ -60,6 +62,9 @@ export default function Register(props){
         }
     }
 
+    if(isRegister){
+        return <Navigate to='/login' />
+    }
 
     return(
         <div  className="flex flex-col items-center py-20">

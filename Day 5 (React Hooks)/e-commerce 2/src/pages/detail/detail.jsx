@@ -91,11 +91,11 @@ let DetailProduct = () => {
         <div className="parent-size flex mt-10 ml-5 h-screen">
             {/* left */}
             <div className="size my-fs-25 font-bold flex-col basis-2/5 ">
-                <div className="border-b-2 flex">
+                <div className="border-b-2 pb-2 mt-3 flex" style={{ borderBottom: '3px solid silver' }}>
                 Size options
                 </div>
-                <div className="option block flex my-fs-15 border-2 mt-1 items-center">
-                <select ref={selectSize} onChange={onSelectSize} className="flex grow">
+                <div className="option block flex my-fs-15  mt-1 items-center">
+                <select ref={selectSize} onChange={onSelectSize} className="flex grow mt-3 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 lock w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     {
                         data.size.map((value, index) => {
                             return(
@@ -108,11 +108,11 @@ let DetailProduct = () => {
             </div>
             {/* right */}
             <div className="topping ml-5 my-fs-25 font-bold flex-col basis-3/5 pr-5">
-                <div className="border-b-2 flex">
+                <div className="border-b-2 pb-2 mt-3 flex " style={{ borderBottom: '3px solid silver' }}>
                     Topping
                     </div>
-                    <div className="option block flex my-fs-15 border-2 mt-1 items-center">
-                    <select className="flex grow">
+                    <div className="option block flex my-fs-15 mt-1 items-center">
+                    <select className="flex grow mt-3 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 lock w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ">
                         {
                             data.topping.map((value, index) => {
                                 return(

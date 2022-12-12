@@ -12,7 +12,7 @@ export default function Navbar(props){
     const location = useLocation() // Digunakan untuk mendapatkan pathname
     return(
         <>
-            <div className='navbar fixed w-screen flex px-10 '>
+            <div className='navbar  sm:fixed sm:w-screen sm:flex sm:px-10 '>
                 <div className='flex items-center'>
                     <Link to='/'>
                         <img src={Logo} width='50px' height='50px' />

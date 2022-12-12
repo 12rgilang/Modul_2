@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "username": "gilang",
+      "email": "gilang@gmail.com",
+      "password": "gilang123",
+      "status": false,
+      "id": 1
+    }
+  ],
+  "posting": []
+}

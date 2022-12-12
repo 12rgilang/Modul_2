@@ -185,8 +185,9 @@ let SignIn = (props) => {
                 </div>
           </div>
         </div>
-      </div>
+      </div> 
 
+                
 
       {/* <div className="parent flex justify-center py-30">
         <div className="w-2/4 flex justify-center ">
