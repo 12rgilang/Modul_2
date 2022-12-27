@@ -44,18 +44,19 @@ let Menu = () =>{
     // get data & filtering direct dari Server side
     let onGetData = async() => {
         try {
-            let response = await axios.get('http://localhost:5000/products?category=0') // ini mengambil produk category index ke 0
-            let responseCategory = await axios.get('http://localhost:5000/category') // ini mengambil produk category dan ditampilkan di sidebar
+            let response = await axios.get('http://localhost:2023/products/menu') // ini mengambil produk category index ke 0
+            // let responseCategory = await axios.get('http://localhost:5000/category') // ini mengambil produk category dan ditampilkan di sidebar
+            console.log(response.data.findListMenu)
 
-            setData(response.data)
-            setCategory(responseCategory.data)
+            setData(response.data.findListMenu)
+            // setCategory(responseCategory.data)
         } catch (error) {
-            
+            console.log(error)
         }
     }
 
     let onFilter = async(idx) => {
-        let response = await axios.get(`http://localhost:5000/products?category=${idx}`)
+        let response = await axios.get(`http://localhost:2023/products?category=${idx}`)
 
         setData(response.data)
         setSelectedMenu(idx) //
@@ -101,7 +102,12 @@ let Menu = () =>{
                                 <div key={index} className='flex items-center mt-3 hvr-bob'>
                                     <div>
                                         <Link to={`/product/${value.id}`}>
-                                            <img src={value.image} style={{ width:'100px', height:'100px' }} className='rounded-full' />
+                                            {
+                                                    value.products_image !== null?
+                                                    <img src={value.products_image.url} style={{ width:'100px', height:'100px' }} className='rounded-full' />
+                                                    :
+                                                    null
+                                            }
                                         </Link>
                                     </div>
                                     <div className='pl-3'>

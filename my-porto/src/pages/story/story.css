@@ -1,0 +1,4 @@
+.carousel {
+    z-index: -1;
+    position: inherit;
+}

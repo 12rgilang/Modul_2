@@ -37,7 +37,7 @@ export default function App(){
     try {
       let getTokenId = localStorage.getItem('token')
       if(getTokenId){
-        let response =  await axios.get(`http://localhost:5000/users?id=${getTokenId}`)
+        let response =  await axios.get(`http://localhost:2023/users?id=${getTokenId}`)
         setUsername(response.data[0].username)
         setRedirect(true)
       }
@@ -86,21 +86,24 @@ export default function App(){
         // let inputUsername = username.current.value // input username dan password ini akan dipanggil pada saat on click di page login
         // let inputPassword = password.current.value
         // step.2 check if Username & Password exist?
-        let response = await axios.get(`http://localhost:5000/users?username=${inputUsername}&password=${inputPassword}`)
-        if(response.data.length === 0) throw{message: "Account not found"}
+        // let response = await axios.get(`http://localhost:2023/users?username=${inputUsername}&password=${inputPassword}`) // ini mendapatkan inputan dari front-end tanpa validasi backend
+        let response = await axios.post('http://localhost:2023/users/login', {username: inputUsername, password: inputPassword})
+        // ini validasi menggunakan backend
+        
+        // if(response.data.length === 0) throw{message: "Account not found"} // ini digunakan jika menggunakan validasi front end
         // let dataToSave = {
         //   id: response.data[0].id,
         //   username: response.data[0].username // [0] arrray 0 karena data yang diberikan dari server hanya 1 index
         // } jika menggunakan username, mmaka harus dimasukkan kedalam variable
-        localStorage.setItem('token', `${response.data[0].id}` ) // JSON.stringify(dataToSave) stringify untuk merubha object menjadi string 
-        setUsername(response.data[0].username)
-        toast.success('Login Success.')
+        localStorage.setItem('token', `${response.data.data.id}` ) // JSON.stringify(dataToSave) stringify untuk merubha object menjadi string 
+        setUsername(response.data.data.username)
+        toast.success(response.data.message)
         setTimeout(() => {
           setRedirect(true)
         }, 2000)
 
     } catch (error) {
-        toast.error(error.message)
+        toast.error(error.response.data.message)
     }
 }
 

@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+
+@keyframes ticker {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .ticker-container {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: ticker 10s linear infinite;
+  }
+  
+  .ticker {
+    white-space: nowrap;
+  }
+
+  .sql {
+    font-family: 'Sofia', cursive;
+
+  }
+
+  .express{
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .react{
+    font-family: 'Merriweather', serif;
+  }
+
+  .node {
+    font-family: 'Bungee Shade', cursive;
+  }

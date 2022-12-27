@@ -36,27 +36,28 @@ export default function Register(){
         if(!regex.test(inputPassword)) throw {message: 'Password must contains any number,special and capitalize Char'}
         
         setDisabledButton(true) 
-        let checkEmail = await axios.get(`http://localhost:5000/users?email=${inputEmail}`)
-        let checkUsername = await axios.get(`http://localhost:5000/users?username=${inputUsername}`)
+        // let checkEmail = await axios.get(`http://localhost:5000/users?email=${inputEmail}`)
+        // let checkUsername = await axios.get(`http://localhost:5000/users?username=${inputUsername}`)
 
-            if(checkEmail.data.length === 0 && checkUsername.data.length === 0){ //
+            // if(checkEmail.data.length === 0 && checkUsername.data.length === 0){ // pengkondisian nmenggunakan check di front end
                 //POST
-                let register = await axios.post('http://localhost:5000/users', {username: inputUsername, email: inputEmail, password: inputPassword})
+                let result = await axios.post(`http://localhost:2023/users/register`, {username: inputUsername, email: inputEmail, password: inputPassword})
                 username.current.value = '' // ini apa bila succes maka input field akan kembali kosong 
                 password.current.value = ''
                 email.current.value = ''
-                toast.success('Register Succesfull') // ini memunculkan alert menggunakan npm toast
+                toast.success(result.data.message) // ini memunculkan alert menggunakan npm toast
                 setMessage('') // seteleah input pendaftaran selesai maka pemberitahuan akan kembali kosong
                 setTimeout(() =>{
                     setIsRegister(true)
                 }, 2500)
                 
-            }else{
-                throw { message: 'Email/username already register'}
-            }
+            // }else{ front-end
+            //     throw { message: 'Email/username already register'}
+            // }
         } catch (error) {
             // setMessage(error.message) //ini jika ingin menampilkan pemberitahuan dibawah inputnfield
             toast.error(error.message)
+            // setMessage(error.response.data.message)
         }finally{
             setDisabledButton(false)
         }
