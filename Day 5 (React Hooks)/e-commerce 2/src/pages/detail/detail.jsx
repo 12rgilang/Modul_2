@@ -2,6 +2,7 @@ import axios from  'axios';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 import { BsFillCartFill, BsFillHandbagFill } from "react-icons/bs"
+import toast, { Toaster } from 'react-hot-toast'
 
 
 let DetailProduct = () => {
@@ -13,12 +14,16 @@ let DetailProduct = () => {
     const selected = useRef()
     const [data, setData] = useState(null)
     const [sizeToShow, setSizeToShow] = useState(0)
+    const [toppingToShow, setToppingToShow] = useState(0)
+    const [sugarToShow, setSugarToShow] = useState(0)
+    const [totalCart, setTotalCart] = useState(0)
+
 
 
     let onGetData = async() => {
         try {
-            let response = await axios.get(`http://localhost:5000/products/${productId.id}`)
-            console.log(productId)
+            let response = await axios.get(`http://localhost:2023/products/${productId.id}`)
+            console.log(response)
             setData(response.data)
         } catch (error) {
             
@@ -31,33 +36,70 @@ let DetailProduct = () => {
         setSizeToShow(indexSelectedSize)
     }
 
+    let onSelectTopping = () => {
+        let indexSelectedTopping = selectTopping.current.value
+        console.log(indexSelectedTopping)
+        setToppingToShow(indexSelectedTopping)
+    }
+
+    let onSelectSugar = () => {
+        let indexSelectedSugar = selectSugar.current.value
+        console.log(indexSelectedSugar)
+        setSugarToShow()
+    }
+
     let onAddOrder = async() =>{
         try {
+
+            let myToken
+
+            if(localStorage.getItem('token')){
+                myToken = parseInt(localStorage.getItem('token'))
+            }else{
+                myToken = localStorage.getItem('tokenUid')
+            }
+
             let dataToSend = {
-                idProduct: data.id,
+                productsId: data.id,
                 indexSize: parseInt(selectSize.current.value),
                 indexTopping: parseInt(selectTopping.current.value),
                 indexSugar: parseInt(selectSugar.current.value),
                 quantity: 1,
-                userId: parseInt(localStorage.getItem('token'))
+                userId: myToken
             }
-            let checkExist = await axios.get(`http://localhost:5000/cart?idProduct=${data.id}`)
+            let checkExist = await axios.get(`https://my-json-server.typicode.com/12rgilang/jsonserver-deployment-trial/cart?productsId=${data.id}&userId=${myToken}`)
 
             if(checkExist.data.length === 0){
-                let response = await axios.post(`http://localhost:5000/cart`, dataToSend)
+                let response = await axios.post(`https://my-json-server.typicode.com/12rgilang/jsonserver-deployment-trial/cart`, dataToSend)
+                toast.success('Add to cart Success.')
+                onGetTotalCarts()
             }else{
                 let newQuantity = checkExist.data[0].quantity + 1
-                let update = await axios.patch(`http:localhost:5000/cart/${checkExist.data[0].id}`, {quantitiy: newQuantity})
-                console.log(update)
+                let update = await axios.patch(`http:localhost:2023/cart/${checkExist.data[0].id}`, {quantitiy: newQuantity})
+                toast.success('Update quantity Success.')
             }
         } catch (error) {
-            console.log(error.message)
+            toast.error(error.message)
             
+        }
+    }
+
+    let onGetTotalCarts = async() => {
+        try {
+           let myToken = localStorage.getItem('token') ? parseInt(localStorage.getItem('token')) : localStorage.getItem('tokenUid')
+
+           if(myToken){
+               let response = await axios.get(`https://my-json-server.typicode.com/12rgilang/jsonserver-deployment-trial/cart?userId=${myToken}`)
+               setTotalCart(response.data.length)
+           }
+        } catch (error) {
+            toast.error(error.message)
         }
     }
 
     useEffect(() => {
         onGetData()
+        onGetTotalCarts()
     }, [])
 
     if(data === null){
@@ -95,7 +137,7 @@ let DetailProduct = () => {
                 Size options
                 </div>
                 <div className="option block flex my-fs-15  mt-1 items-center">
-                <select ref={selectSize} onChange={onSelectSize} className="flex grow mt-3 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 lock w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <select ref={selectSize} onClick={onSelectSize} className="flex grow mt-3 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 lock w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     {
                         data.size.map((value, index) => {
                             return(
@@ -106,13 +148,14 @@ let DetailProduct = () => {
                 </select>
                 </div>
             </div>
+
             {/* right */}
             <div className="topping ml-5 my-fs-25 font-bold flex-col basis-3/5 pr-5">
                 <div className="border-b-2 pb-2 mt-3 flex " style={{ borderBottom: '3px solid silver' }}>
                     Topping
                     </div>
                     <div className="option block flex my-fs-15 mt-1 items-center">
-                    <select className="flex grow mt-3 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 lock w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ">
+                    <select ref={selectTopping} onClick={onSelectTopping} className="flex grow mt-3 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 lock w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ">
                         {
                             data.topping.map((value, index) => {
                                 return(
@@ -127,7 +170,7 @@ let DetailProduct = () => {
                         <h1 className="my-fs-25 font-bold pb-2 mt-3" style={{ borderBottom: '3px solid silver' }}>
                         Sugar
                         </h1>
-                        <select  id="countries" className="mt-3 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <select ref={selectSugar} onClick={onSelectSugar} id="countries" className="mt-3 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             {data.sugar.map((value, index) => {
                                 return(
                                     <option value={index}>{value}</option>
@@ -169,9 +212,10 @@ let DetailProduct = () => {
                     </div>
                 </div>
                 <div className="icons my-fs-30 ">
-                    <BsFillHandbagFill />
+                    <BsFillHandbagFill /> {totalCart}
                 </div>
             </div>
+            <Toaster />
         </div>
 
         </>

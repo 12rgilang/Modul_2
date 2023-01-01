@@ -10,6 +10,7 @@ let Menu = () =>{
     // const [ backupData, setBackupData ] = useState([])  // backup data ini untuk csr clientside rendering
     const [category, setCategory] = useState([])
     const [selectedMenu, setSelectedMenu] = useState(0)
+    const [disabledButton, setDisabledButton] = useState(false)
 
     useEffect(() => {
         onGetData()
@@ -47,7 +48,6 @@ let Menu = () =>{
             let response = await axios.get('http://localhost:2023/products/menu') // ini mengambil produk category index ke 0
             // let responseCategory = await axios.get('http://localhost:5000/category') // ini mengambil produk category dan ditampilkan di sidebar
             console.log(response.data.findListMenu)
-
             setData(response.data.findListMenu)
             // setCategory(responseCategory.data)
         } catch (error) {
@@ -56,10 +56,12 @@ let Menu = () =>{
     }
 
     let onFilter = async(idx) => {
+        setDisabledButton(true)
         let response = await axios.get(`http://localhost:2023/products?category=${idx}`)
 
         setData(response.data)
-        setSelectedMenu(idx) //
+        setSelectedMenu(idx) 
+        setDisabledButton(false)
     }
 
     return(
@@ -75,7 +77,7 @@ let Menu = () =>{
                 category.map((value, index) => {
                     return(
                         <div className="flex flex-wrap btn items-center pb-2">
-                            <button key={index} onClick={() => onFilter(index)} className="pt-2">{value}</button>
+                            <button key={index} onClick={() => onFilter(index)} className="pt-2" disabled={disabledButton}> {disabledButton ? 'loading' : value }</button>
                         </div>
                         
                     )
@@ -120,7 +122,7 @@ let Menu = () =>{
                         })
                         :
                             <div className="flex justify-center items-center h-30 mt-[200px] mr-[100px] w-screen letter" id="message">
-                                Cooming soon
+                                Comming soon tes
                             </div>
                     }
                 </div>

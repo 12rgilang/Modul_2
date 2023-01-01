@@ -15,7 +15,7 @@ export default function Cart(){
             let myToken = parseInt(localStorage.getItem('token'))
 
             if(myToken){
-                let res = await axios.get(`http://localhost:5000/cart?_expand=users&_expand=products`)
+                let res = await axios.get(`http://localhost:2023/cart?_expand=users&_expand=products`)
                 console.log(res)
                 setData(res.data)
             }
